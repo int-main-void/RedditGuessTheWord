@@ -1,0 +1,38 @@
+{
+  "name": "redditgame",
+  "author": "Michael Nail",
+  "description": "a web game for Reddit",
+  "private": true,
+  "version": "0.0.0",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@devvit/public-api": "^0.11.3",
+    "@types/node": "22.8.7",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "9.1.0",
+    "serve": "^14.2.4",
+    "typescript": "5.3.2",
+    "vite": "^5.4.10",
+    "vitest": "2.0.5"
+  },
+  "scripts": {
+    "dev:game-watch": "vite build --watch",
+    "dev:build": "vite build",
+    "dev:serve": "npm run dev:build && serve webroot",
+    "dev": "concurrently -p \"[{name}]\" -n \"DEVVIT,GAME\" -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"npm run dev:devvit\" \"npm run dev:game\" --restart-tries 30",
+    "vite": "vite",
+    "upload": "devvit upload",
+    "playtest": "devvit playtest gsmtest",
+    "start": "npm run playtest",
+    "publish": "devvit publish",
+    "revert": "devvit install gsmtest redditgame-app@latest"
+  }
+}

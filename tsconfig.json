@@ -1,0 +1,10 @@
+{
+  "extends": "@devvit/public-api/devvit.tsconfig.json",
+  "compilerOptions": {
+    "lib": ["DOM", "ES2020"],
+    "target": "esnext",
+    "esModuleInterop": true,
+    "noEmit": true
+  },
+  "include": ["./src/**/*"]
+}

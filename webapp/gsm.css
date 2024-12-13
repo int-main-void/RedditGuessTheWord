@@ -1,0 +1,197 @@
+.LetterGuessMain {
+  padding: 3vw 3vh;
+  margin: 1vw 1vh;
+  /* border: 5px solid var(--light-grey); */
+  border-radius: 1vh;
+  height: 100%;
+
+  .Ineligible {
+    font-weight: bold;
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+
+  .UserHUD {
+    /* background-color: var(--background-color); */
+    padding: 3vh 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-family: sans-serif;
+    align-items: center;
+
+    img.pointsIcon {
+      height: 1.5em;
+    }
+  }
+
+  .LetterGuessResults {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      margin: 1em 1em;
+    }
+
+    .message {
+      font-weight: bold;
+      font-size: x-large;
+    }
+
+    .Letter {
+      font-family: fixed;
+      font-weight: bold;
+      font-size: x-large;
+      display: inline-block;
+      padding: 0.5em 0.33em;
+      border-radius: 0.25em;
+      border: 0.05em solid var(--mid-grey);
+      background-color: var(--offwhite);
+
+      &:not(:last-child) {
+        margin-right: 0.25em;
+      }
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
+      padding: 0.75em 1.5em;
+      border-radius: 1em;
+    }
+  }
+
+  .LetterGuessGame {
+    /* background-color: var(--background-color); */
+    margin: 3vh 3vw;
+  }
+
+  .AnswerBox {
+    font-family: monospace;
+    font-size: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1vh;
+
+    .AnswerLetter {
+      display: inline-block;
+      margin: 0 0.02em;
+      padding: 0.2em;
+      border-radius: 0.05em;
+    }
+
+    .AnswerLetter.known {
+    }
+    .AnswerLetter.unknown {
+      color: var(--light-grey);
+      background-color: var(--light-grey);
+      border: 0.05em solid var(--mid-grey);
+    }
+  }
+}
+
+.GameKeyboard {
+  .LettersRow {
+    padding: 1vh 0 1vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+
+    .Letter {
+      border: 2px solid black;
+      border-radius: 8px;
+      padding: 1em;
+
+      background-color: var(--yellow-orange);
+
+      display: inline-block;
+
+      text-transform: uppercase;
+
+      font-family: serif;
+
+      &:not(:last-child) {
+        margin-right: 0.5em;
+      }
+
+      &:hover {
+        background: var(--mid-grey);
+      }
+
+      &:active {
+        background-color: var(--dark-grey);
+      }
+
+      &.disabled {
+        color: var(--mid-grey);
+        background-color: var(--dark-grey);
+      }
+    }
+  }
+}
+
+.loader {
+  --loader-color: var(--blue-grey);
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--loader-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: loaderRotation 1s linear infinite;
+}
+
+@keyframes loaderRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+div#confettiDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  z-index: -10;
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  font-size: 1.6rem;
+  animation: confetti-fall linear 2s infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0);
+  }
+  100% {
+    transform: translateY(100vh) rotate(180deg);
+  }
+}
